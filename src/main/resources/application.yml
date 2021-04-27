@@ -1,0 +1,15 @@
+server:
+  port: 8000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wematch?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    password: we
+    username: we
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
