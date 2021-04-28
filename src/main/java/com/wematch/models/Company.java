@@ -3,11 +3,14 @@ package com.wematch.models;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.wematch.utils.BooleanToYNConverter;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -31,12 +34,15 @@ public class Company extends BaseEntity{
 	private Long companyId;
 
 	@Column(nullable = false, length = 20)
+	private String name;
+	
+	@Column(length = 20)
 	private String ceo;
 	
 	@Column(nullable = false, length = 20)
 	private String tel;
 	
-	@Column(length = 45)
+	@Column(nullable = false, length = 45)
 	private String address;
 	
 	@Column(length = 20)
@@ -51,6 +57,7 @@ public class Company extends BaseEntity{
 	@Column
 	private Integer carCnt;
 	
-	@Column
-	private Integer matchCnt;
+	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 'N'")
+	@Convert(converter = BooleanToYNConverter.class)
+	private Boolean isMatching;
 }

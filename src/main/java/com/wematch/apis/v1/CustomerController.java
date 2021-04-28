@@ -1,6 +1,9 @@
 package com.wematch.apis.v1;
 
+import static com.wematch.apis.dto.ApiResult.succeed;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wematch.apis.dto.ApiResult;
+import com.wematch.apis.dto.CustomerDTO;
 import com.wematch.models.Customer;
 import com.wematch.services.CustomerService;
 
@@ -24,9 +29,17 @@ public class CustomerController {
 	private final CustomerService customerService;
 	
 	@GetMapping("")
-	public List<Customer> getCustomerList(){
-		List<Customer> customer = customerService.getCustomerList();
-		return customer;
+	public ApiResult<List<CustomerDTO>> getCustomerList(){
+		List<Customer> customers = customerService.getCustomerList();
+		
+		List<CustomerDTO> customerDtoList = customers.stream().map(customer -> {
+			return CustomerDTO.builder()
+				.name(customer.getName())
+				.tel(customer.getTel())
+				.build();
+		}).collect(Collectors.toList());
+		
+		return succeed(customerDtoList);
 	}
 	
 	@GetMapping("/{id}")

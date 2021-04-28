@@ -36,13 +36,15 @@ public class Customer extends BaseEntity{
 	@Column(nullable = false, length = 20)
 	private String tel;
 	
-	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 0")
-//	@Convert(converter = BooleanToYNConverter.class)
+	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 'N'")
+	@Convert(converter = BooleanToYNConverter.class)
 	private Boolean isServiceTerms;
 	
-	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 0")
+	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 'N'")
+	@Convert(converter = BooleanToYNConverter.class)
 	private Boolean isPrivacyTerms;
 	
-	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 0")
+	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 'N'")
+	@Convert(converter = BooleanToYNConverter.class)
 	private Boolean isMarketingTerms;
 }

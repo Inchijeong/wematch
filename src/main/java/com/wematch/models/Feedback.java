@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.wematch.utils.BooleanToYNConverter;
 
 import lombok.AccessLevel;
@@ -57,6 +59,7 @@ public class Feedback extends BaseEntity{
 	private Integer totalPrice;
 	
 	@Column(nullable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime movingDate;
 	
 	@Column(columnDefinition = "TEXT")

@@ -20,8 +20,6 @@ public abstract class MovingOrder extends BaseEntity{
 	//도착지 주소정보, 도착지 층수, 이사일자, 보관이사여부,
 	//이용약관동의여부, 견적요청을 위한 개인정보 제3자 제공동의여부,
 	//마케팅 정보수신 동의여부
-//	@Column
-//	private String tel;
 	
 	@Column(nullable = false, length = 45)
 	private String startAddress;
@@ -42,7 +40,7 @@ public abstract class MovingOrder extends BaseEntity{
 	@Column(nullable = false, length = 1, columnDefinition = "CHAR(1) DEFAULT 0")
 	private Boolean isStorage;
 	
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 }
