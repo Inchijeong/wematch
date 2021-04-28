@@ -23,17 +23,17 @@
 이미지 생성
 
 ```
-docker build -t cde0409/wematch-back:v1 .
+docker build -t cde0409/wematch:v1 .
 ```
 
 혹은
 
 ### 저장소에서 다운
 
-[Dockerhub wematch 저장소](https://hub.docker.com/repository/docker/cde0409/wematch-back)
+[Dockerhub wematch 저장소](https://hub.docker.com/repository/docker/cde0409/wematch)
 
 ```
-docker pull cde0409/wematch-back:v1
+docker pull cde0409/wematch:v1
 ```
 
 
@@ -58,7 +58,7 @@ bash로 접속
 docker exec -it db bash
 ```
 
-mysql 접속
+mysql 접속(password: we)
 
 ```
 mysql -u root -p
@@ -70,40 +70,30 @@ DB 생성
 create database wematch;
 ```
 
-User 생성
-
-```
-create user ‘we’@'%' identified by ‘we';
-```
-
-권한 부여
-
-```
-grant all privileges on wematch.* to ‘we'@'%'
-```
-
 서버 실행
 
 ```
-docker run -it --name app --network test -p 8080:8080 cde0409/wematch-back:v1
+docker run -it --name app --network test -p 8080:8080 cde0409/wematch:v1
 ```
 
 
 
 ## 테스트
 
-*src/test/java/com/wematch/apis/v1/ApisTests.class* 에서 Run as - Junit Test
+1. 루트에 있는 PostMan import 사용
 
-```
-1. 이사업체 정보 목록 조회(등록 포함)
-_01_findAllCompanyApiTest
-2. 고객 정보 목록 조회(등록 포함)
-_02_findAllCustomerApiTest
-3. 주문 정보 목록 조회(등록 포함)
-_03_findAllOrderApiTest
-```
+   */Wematch.postman_collection.json*
 
+2. *src/test/java/com/wematch/apis/v1/ApisTests.class* 에서 Run as - Junit Test
 
+   ```
+   1. 이사업체 정보 목록 조회(등록 포함)
+   _01_findAllCompanyApiTest
+   2. 고객 정보 목록 조회(등록 포함)
+   _02_findAllCustomerApiTest
+   3. 주문 정보 목록 조회(등록 포함)
+   _03_findAllOrderApiTest
+   ```
 
 
 
