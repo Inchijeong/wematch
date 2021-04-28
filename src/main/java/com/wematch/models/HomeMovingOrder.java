@@ -1,10 +1,14 @@
 package com.wematch.models;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.wematch.utils.TelUtils;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -24,4 +28,21 @@ public class HomeMovingOrder extends MovingOrder{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long homeMovingOrderId;
 
+	@Builder
+	public HomeMovingOrder(
+			Customer customer,
+			String startAddress,
+			Integer startFloor,
+			String endAddress,
+			Integer endFloor,
+			LocalDateTime movingDate,
+			Boolean isStorage) {
+		this.customer = customer;
+		super.startAddress = startAddress;
+		super.startFloor = startFloor;
+		super.endAddress = endAddress;
+		super.endFloor = endFloor;
+		super.movingDate = movingDate;
+		super.isStorage = isStorage;
+	}
 }

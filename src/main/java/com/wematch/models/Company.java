@@ -26,9 +26,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class Company extends BaseEntity{
 
-	//업체명, 대표이사, 연락처, 주소정보, 사업자번호
-	//사업자등록일자, 직원수, 차량수(1톤, 2.5톤, 5톤, 기타)
-	//매칭가능여부
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long companyId;

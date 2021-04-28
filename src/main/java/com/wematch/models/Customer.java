@@ -24,8 +24,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class Customer extends BaseEntity{
 
-	//이름, 연락처, 등록일, 이용약관동의여부,
-	// 견적요청을 위한 개인정보 제3자 제공동의여부, 마케팅 정보수신 동의여부
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long customerId;

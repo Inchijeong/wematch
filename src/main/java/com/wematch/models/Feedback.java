@@ -31,9 +31,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class Feedback extends BaseEntity{
 
-	// 고객정보, 업체정보, 이사종류(가정이사, 원룸이사),
-	// 정보공개동의여부, 전문성 만족도, 친절 만족도,
-	// 재방문의사, 계약가격, 이사일, 피드백 작성일, 피드백 내용
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long feedbackId;
