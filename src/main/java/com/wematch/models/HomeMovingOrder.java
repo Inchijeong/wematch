@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @Builder
-@Table(name = "home_mover_order")
+@Table(name = "home_moving_order")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class HomeMoveOrder extends Order{
+public class HomeMovingOrder extends MovingOrder{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long homeMoveOrderId;
+	private Long homeMovingOrderId;
 
 }
