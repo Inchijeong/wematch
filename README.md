@@ -80,9 +80,9 @@ docker run -it --name app --network test -p 8080:8080 cde0409/wematch:v1
 
 ## 테스트
 
-1. 루트에 있는 PostMan import 사용
+1. 프로젝트 루트에 있는 PostMan collection import 사용
 
-   */Wematch.postman_collection.json*
+   [/Wematch.postman_collection.json](./Wematch.postman_collection.json)
 
 2. *src/test/java/com/wematch/apis/v1/ApisTests.class* 에서 Run as - Junit Test
 
